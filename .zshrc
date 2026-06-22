@@ -10,6 +10,7 @@ alias ls="eza --icons"
 alias ll="eza --icons -lah --git"
 
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias lazycfg="lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 # misc configurations
 export GPG_TTY=$(tty)
