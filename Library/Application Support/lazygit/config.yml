@@ -31,3 +31,25 @@ gui:
 
     defaultFgColor:
       - "#ffeeee"
+
+customCommands:
+  - key: "C"
+    context: "files"
+    description: "Commit with gitmoji"
+    prompts:
+      - type: "menuFromCommand"
+        title: "Select a gitmoji"
+        key: "emoji"
+        command: "gitmoji -l"
+        filter: "^(.*?) - (:.*?:) - (.*)$"
+        valueFormat: "{{ .group_1 }}"
+        labelFormat: "{{ .group_1 }} {{ .group_3 }}"
+      - type: "input"
+        title: "Commit summary {{ .Form.emoji }}"
+        key: "title"
+      - type: "input"
+        title: "Commit description"
+        key: "body"
+        initialValue: ""
+    command: 'git commit -m {{ printf "%s %s" .Form.emoji .Form.title | quote }}{{ if .Form.body }} -m {{ .Form.body | quote }}{{ end }}'
+    loadingText: "Committing..."
