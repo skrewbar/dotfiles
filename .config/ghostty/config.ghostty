@@ -1,6 +1,9 @@
 window-width = 120
 window-height = 30
 
+window-position-x = 371
+window-position-y = 262
+
 window-inherit-working-directory = false
 
 font-family = "JetBrainsMono Nerd Font Mono"
